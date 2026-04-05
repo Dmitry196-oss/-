@@ -31,18 +31,7 @@
 <input type="radio" name="1" value="1" > Коммерческое помещение<br><br><br>
 <input type="radio" name="1" value="1" > Студия/апартаменты<br><br><br>
 <input type="radio" name="1" value="1" > Другое<br><br><br>
-<script>
-function setData(elem) {
-    localStorage.setItem(elem.getAttribute('name'), elem.getAttribute('value'));
-}
-
-window.onload = function() {
-    var selectedValue = localStorage.getItem(document.querySelector('input[name="group"]').getAttribute('name'));
-    if (selectedValue) {
-        document.querySelector('input[name="group"][value="' + selectedValue + '"]').checked = true;
-    }
-};
-</script>
+    
 </div>
 <br><br><br>
 <button onclick="petr()">ДАЛЕЕ</button>
