@@ -1,45 +1,283 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device=width, initialscale">
-        <script src="quiz.js"></script>
-        
-        <link rel="stylesheet" href="quiz.css">
-             
-        
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Смарт-квиз - Дизайн-проект помещения</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+  <div class="quiz-page">
+    <div class="quiz" id="quiz">
+      <div class="quiz__top">
+        <div class="quiz__meta">
+          <div class="quiz__step" id="stepText">Шаг 1 из 6</div>
+        </div>
+        <div class="quiz__progress">
+          <div class="quiz__progress-bar" id="progressBar"></div>
+        </div>
+      </div>
 
-        <h1>Дизайн-проэкт помещения</h1>
-        <div class="container">
-        <p style="font-size: 35px;">На этом сайте вы можете подобрать себе жилье, исходя из ваших предпочтений и бюджета.</p>
-<p style="font-size: 30px;">Данный сайт состоит из 6 этапов.</p><br>
-<p style="font-size: 30px;">1. Тип помещения</p><br>
-<p style="font-size: 30px;">2. Какие зоны нужно включить в Дизайн-проэкт</p><br>
-<p style="font-size: 30px;">3. Площадь помещения</p><br>
-<p style="font-size: 30px;">4. Предпочтительный стиль интерьера</p><br>
-<p style="font-size: 30px;">5. Площадь помещения</p><br>
-<p style="font-size: 30px;">6. Форма отправки заявления</p>
-</div>
+      <div class="quiz__body" id="quizBody">
+        <form id="quizForm" novalidate>
+          <!-- Шаг 1 -->
+          <section class="step active" data-step="1">
+            <h2 class="step__title">Какое помещение вы планируете оформить?</h2>
+            <p class="step__subtitle">Выберите один вариант</p>
 
-<p>Какое помещение вы планируете оформить?</p>
-<div class="box">
-    <form method="get"></form>
-<input type="radio" name="1" value="1" > Квартира <br><br><br>
-<input type="radio" name="1" value="1" > Частный дом <br><br><br>
-<input type="radio" name="1" value="1" > Офис <br><br><br>
-<input type="radio" name="1" value="1" > Коммерческое помещение<br><br><br>
-<input type="radio" name="1" value="1" > Студия/апартаменты<br><br><br>
-<input type="radio" name="1" value="1" > Другое<br><br><br>
-    
-</div>
-<br><br><br>
-<button onclick="petr()">ДАЛЕЕ</button>
+            <div class="options-grid single-choice" data-name="room_type">
+              <label class="option-card">
+                <input type="radio" name="room_type" value="Квартира" />
+                <span>Квартира</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="room_type" value="Частный дом" />
+                <span>Частный дом</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="room_type" value="Офис" />
+                <span>Офис</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="room_type" value="Коммерческое помещение" />
+                <span>Коммерческое помещение</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="room_type" value="Студия / апартаменты" />
+                <span>Студия / апартаменты</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="room_type" value="Другое" />
+                <span>Другое</span>
+              </label>
+            </div>
 
+            <div class="error-text" id="error-1"></div>
 
-<p style="font-size: 15px;">шаг 1 из 6</p>
+            <div class="quiz__nav">
+              <button type="button" class="btn btn--secondary" disabled>Назад</button>
+              <button type="button" class="btn btn--primary" id="nextBtn1">Далее</button>
+            </div>
+          </section>
 
-   
+          <!-- Шаг 2 -->
+          <section class="step" data-step="2">
+            <h2 class="step__title">Какие зоны нужно включить в дизайн-проект?</h2>
+            <p class="step__subtitle">Можно выбрать несколько вариантов</p>
 
-    </body>
+            <div class="options-grid multi-choice" data-name="zones">
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Кухня" />
+                <span>Кухня</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Гостиная" />
+                <span>Гостиная</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Спальня" />
+                <span>Спальня</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Детская" />
+                <span>Детская</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Санузел" />
+                <span>Санузел</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Прихожая" />
+                <span>Прихожая</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Кабинет" />
+                <span>Кабинет</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Гардеробная" />
+                <span>Гардеробная</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Балкон / лоджия" />
+                <span>Балкон / лоджия</span>
+              </label>
+              <label class="option-card">
+                <input type="checkbox" name="zones" value="Полностью всё помещение" />
+                <span>Полностью всё помещение</span>
+              </label>
+            </div>
+
+            <div class="error-text" id="error-2"></div>
+
+            <div class="quiz__nav">
+              <button type="button" class="btn btn--secondary" data-back>Назад</button>
+              <button type="button" class="btn btn--primary" data-next>Далее</button>
+            </div>
+          </section>
+
+          <!-- Шаг 3 -->
+          <section class="step" data-step="3">
+            <h2 class="step__title">Укажите примерную площадь помещения</h2>
+            <p class="step__subtitle">Выберите значение ползунком</p>
+
+            <div class="range-wrap">
+              <div class="range-value" id="areaValue">Площадь: 60 м²</div>
+              <input
+                type="range"
+                id="area"
+                name="area"
+                min="20"
+                max="300"
+                step="5"
+                value="60"
+              />
+              <div class="range-hints">
+                <span>20 м²</span>
+                <span>300 м²</span>
+              </div>
+            </div>
+
+            <div class="error-text" id="error-3"></div>
+
+            <div class="quiz__nav">
+              <button type="button" class="btn btn--secondary" data-back>Назад</button>
+              <button type="button" class="btn btn--primary" data-next>Далее</button>
+            </div>
+          </section>
+
+          <!-- Шаг 4 -->
+          <section class="step" data-step="4">
+            <h2 class="step__title">Какой стиль интерьера вам ближе?</h2>
+            <p class="step__subtitle">Выберите один вариант</p>
+
+            <div class="options-grid single-choice" data-name="style">
+              <label class="option-card">
+                <input type="radio" name="style" value="Современный" />
+                <span>Современный</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="style" value="Минимализм" />
+                <span>Минимализм</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="style" value="Скандинавский" />
+                <span>Скандинавский</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="style" value="Лофт" />
+                <span>Лофт</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="style" value="Неоклассика" />
+                <span>Неоклассика</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="style" value="Классика" />
+                <span>Классика</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="style" value="Пока не определился" />
+                <span>Пока не определился</span>
+              </label>
+            </div>
+
+            <div class="error-text" id="error-4"></div>
+
+            <div class="quiz__nav">
+              <button type="button" class="btn btn--secondary" data-back>Назад</button>
+              <button type="button" class="btn btn--primary" data-next>Далее</button>
+            </div>
+          </section>
+
+          <!-- Шаг 5 -->
+          <section class="step" data-step="5">
+            <h2 class="step__title">Какой бюджет на реализацию интерьера вы рассматриваете?</h2>
+            <p class="step__subtitle">Выберите один вариант</p>
+
+            <div class="options-grid single-choice" data-name="budget">
+              <label class="option-card">
+                <input type="radio" name="budget" value="До 500 000 ₽" />
+                <span>До 500 000 ₽</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="budget" value="500 000 - 1 000 000 ₽" />
+                <span>500 000 - 1 000 000 ₽</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="budget" value="1 000 000 - 2 000 000 ₽" />
+                <span>1 000 000 - 2 000 000 ₽</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="budget" value="От 2 000 000 ₽" />
+                <span>От 2 000 000 ₽</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="budget" value="Пока не знаю" />
+                <span>Пока не знаю</span>
+              </label>
+            </div>
+
+            <div class="error-text" id="error-5"></div>
+
+            <div class="quiz__nav">
+              <button type="button" class="btn btn--secondary" data-back>Назад</button>
+              <button type="button" class="btn btn--primary" data-next>Далее</button>
+            </div>
+          </section>
+
+          <!-- Шаг 6 -->
+          <section class="step" data-step="6">
+            <h2 class="step__title">Оставьте контакты, и мы свяжемся с вами по вашему проекту</h2>
+            <p class="step__subtitle">Телефон обязателен. Email и комментарий - по желанию.</p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" placeholder="Ваше имя" />
+              </div>
+
+              <div class="field">
+                <label for="phone">Телефон *</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (900) 000-00-00" />
+              </div>
+
+              <div class="field full">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.ru" />
+              </div>
+
+              <div class="field full">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" name="comment" placeholder="Коротко опишите задачу"></textarea>
+              </div>
+
+              <div class="field full">
+                <label class="checkbox">
+                  <input type="checkbox" id="agree" name="agree" />
+                  <span>Я соглашаюсь на обработку персональных данных</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="error-text" id="error-6"></div>
+
+            <div class="quiz__nav">
+              <button type="button" class="btn btn--secondary" data-back>Назад</button>
+              <button type="submit" class="btn btn--primary" id="submitBtn">Получить консультацию</button>
+            </div>
+          </section>
+        </form>
+
+        <div class="success-screen" id="successScreen">
+          <div class="success-screen__icon">✓</div>
+          <h2>Спасибо!</h2>
+          <p>Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
 </html>
