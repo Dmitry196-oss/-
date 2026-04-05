@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device=width, initialscale">
+        <script src="quiz.js"></script>
+        
+        <link rel="stylesheet" href="quiz.css">
+             
+        
+    </head>
+    <body>
+
+        <h1>Дизайн-проэкт помещения</h1>
+        <div class="container">
+        <p style="font-size: 35px;">На этом сайте вы можете подобрать себе жилье, исходя из ваших предпочтений и бюджета.</p>
+<p style="font-size: 30px;">Данный сайт состоит из 6 этапов.</p><br>
+<p style="font-size: 30px;">1. Тип помещения</p><br>
+<p style="font-size: 30px;">2. Какие зоны нужно включить в Дизайн-проэкт</p><br>
+<p style="font-size: 30px;">3. Площадь помещения</p><br>
+<p style="font-size: 30px;">4. Предпочтительный стиль интерьера</p><br>
+<p style="font-size: 30px;">5. Площадь помещения</p><br>
+<p style="font-size: 30px;">6. Форма отправки заявления</p>
+</div>
+
+<p>Какое помещение вы планируете оформить?</p>
+<div class="box">
+    <form method="get"></form>
+<input type="radio" name="1" value="1" > Квартира <br><br><br>
+<input type="radio" name="1" value="1" > Частный дом <br><br><br>
+<input type="radio" name="1" value="1" > Офис <br><br><br>
+<input type="radio" name="1" value="1" > Коммерческое помещение<br><br><br>
+<input type="radio" name="1" value="1" > Студия/апартаменты<br><br><br>
+<input type="radio" name="1" value="1" > Другое<br><br><br>
+<script>
+function setData(elem) {
+    localStorage.setItem(elem.getAttribute('name'), elem.getAttribute('value'));
+}
+
+window.onload = function() {
+    var selectedValue = localStorage.getItem(document.querySelector('input[name="group"]').getAttribute('name'));
+    if (selectedValue) {
+        document.querySelector('input[name="group"][value="' + selectedValue + '"]').checked = true;
+    }
+};
+</script>
+</div>
+<br><br><br>
+<button onclick="petr()">ДАЛЕЕ</button>
+
+
+<p style="font-size: 15px;">шаг 1 из 6</p>
+
+   
+
+    </body>
+</html>
